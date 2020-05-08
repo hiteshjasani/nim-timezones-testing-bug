@@ -1,0 +1,25 @@
+name: testing
+
+on:
+  push:
+    paths:
+    - 'src/**'
+    - 'tests/**'
+    - '**/*.nimble'
+    - '.github/workflows/testing.yml'
+
+jobs:
+  build:
+    env:
+      NIM_VERSION: 1.2.0
+
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Run tests
+      run: |
+        docker run -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:$NIM_VERSION nimble test -y --verbose
