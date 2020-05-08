@@ -12,4 +12,4 @@ bin           = @["nim_timezones_testing_bug"]
 # Dependencies
 
 requires "nim >= 1.2.0"
-requires "timezones 0.5.1"
+requires "timezones 0.5.2"
