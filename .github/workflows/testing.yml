@@ -22,4 +22,8 @@ jobs:
 
     - name: Run tests
       run: |
-        docker run -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:$NIM_VERSION nimble test -y --verbose
+        docker run -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:$NIM_VERSION bash -c "nimble install -y; nimble test"
+
+    - name: Run tests
+      run: |
+        docker run -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:$NIM_VERSION bash -c "nimble test -y --verbose"
